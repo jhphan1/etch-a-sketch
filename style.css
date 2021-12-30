@@ -1,6 +1,19 @@
-.header,
-.container {
-    border: solid black 1px;
+.header {
+    text-align: center;
+}
+
+html {
+    background-image: radial-gradient(rgba(255, 0, 0, 0.4) 30%, rgba(255, 140, 0, 0.4), rgba(255, 255, 0, 0.4),
+        rgba(0, 255, 0, 0.4),rgba(0, 0, 255, 0.4),rgb(75, 0, 130, 0.4),rgb(238, 130, 238, 0.4));
+    height: 100vh;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
@@ -8,6 +21,29 @@
     aspect-ratio: 1 / 1;
     display: flex;
     flex-wrap: wrap;
+    margin-top: 32px;
+    border: solid white 4px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px grey;
+    background-color: white;
+}
+
+button {
+    height: 30px;
+    width: 120px;
+    margin-left: 8px;
+    margin-right: 8px;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 4px;
+    font-weight: bold;
+    border: solid black 2px;
+    transition: 0.5 ease;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: white;
+    box-shadow: 0px 0px 5px white;
 }
 
 .square {
@@ -15,4 +51,13 @@
     aspect-ratio: 1 / 1;
     background-color: white;
     flex: 1 1 auto;
+}
+
+.header-text {
+    font-size: 60px;
+    font-weight: bold;
+    -webkit-text-stroke:3px black;
+    -webkit-text-fill-color:transparent;
+    padding-top: 24px;
+    padding-bottom: 14px;
 }
