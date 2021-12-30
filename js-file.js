@@ -63,6 +63,10 @@ function drawBlack() {
     // Select all squares
     let squares = document.querySelectorAll(".square");
 
+    // Remove greyscale effect and reset opacity
+    squares.forEach(square => square.removeEventListener("mouseover", incrementOpacity));
+    squares.forEach(square => square.addEventListener("mouseover", resetOpacity));
+
     // Add mouseover event listener to each square to trigger black background
     squares.forEach(square => square.addEventListener("mouseover", () => square.style.backgroundColor = "black"));
 }
@@ -72,7 +76,11 @@ function drawRainbow() {
     // Select all squares
     let squares = document.querySelectorAll(".square");
 
-    // Add mouseover event listener to each square to trigger black background
+    // Remove greyscale effect and reset opacity
+    squares.forEach(square => square.removeEventListener("mouseover", incrementOpacity));
+    squares.forEach(square => square.addEventListener("mouseover", resetOpacity));
+
+    // Add mouseover event listener to each square to trigger random rainbow background
     squares.forEach(square => square.addEventListener("mouseover", () => square.style.backgroundColor = createRandomRGB()));
 }
 
@@ -90,8 +98,8 @@ function drawGreyscale() {
     // Select all squares
     let squares = document.querySelectorAll(".square");
 
-    // Remove opacity event listener
-    squares.forEach(square => square.removeEventListener("mouseover", () => square.style.opacity = 1.0));
+    // Remove resetOpacity event listener
+    squares.forEach(square => square.removeEventListener("mouseover", resetOpacity));
 
     // Add mouseover event listener to each square to trigger transparent black background
     squares.forEach(square => square.addEventListener("mouseover", () => square.style.backgroundColor = "black"));
@@ -115,15 +123,23 @@ function incrementOpacity(event) {
         // Stop when fully opaque
         if (newOpacity == 1) {
             event.target.removeEventListener("mouseover", incrementOpacity);
-            console.log("done");
         }
     }
+}
+
+
+function resetOpacity(event) {
+    event.target.style.opacity = 1.0;
 }
 
 
 function eraserMode() {
     // Select all squares
     let squares = document.querySelectorAll(".square");
+
+    // Remove greyscale effect and reset opacity
+    squares.forEach(square => square.removeEventListener("mouseover", incrementOpacity));
+    squares.forEach(square => square.addEventListener("mouseover", resetOpacity));
 
     // Add mouseover event listener to each square to trigger white background
     squares.forEach(square => square.addEventListener("mouseover", () => square.style.backgroundColor = "white"));
