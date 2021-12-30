@@ -1,0 +1,18 @@
+.header,
+.container {
+    border: solid black 1px;
+}
+
+.container {
+    width: 400px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.square {
+    /* box-shadow: inset 0px 0px 0px 2px grey; */
+    aspect-ratio: 1 / 1;
+    background-color: white;
+    flex: 1 1 auto;
+}
